@@ -17,17 +17,24 @@ let firstValue = 0
 let secondValue = 0
 let operator = ''
 let result = 0
+
+const matchOperator = {
+    add: (a,b)=>a+b,
+    subtract: (a,b)=>a-b,
+    multiply: (a,b)=>a*b,
+    divide: (a,b)=>a/b
+}
 // eventListener
 operatorButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
         operator = button.id
-        firstValue = parseInt(inputValue.value, 10)
-        console.log(`${firstValue} ${operator}`)
+        firstValue = parseFloat(inputValue.value, 10)
+        inputValue.value = '';
     })
 })
 
 calculate.addEventListener("click", (e) => {
-    secondValue = parseInt(inputValue.value, 10)
-    result = firstValue + secondValue
+    secondValue = parseFloat(inputValue.value, 10)
+    result = matchOperator[operator](firstValue, secondValue)
     console.log(result)
 })
