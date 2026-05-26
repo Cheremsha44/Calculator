@@ -28,13 +28,15 @@ const matchOperator = {
 operatorButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
         operator = button.id
-        firstValue = parseFloat(inputValue.value, 10)
-        inputValue.value = '';
+        if(inputValue.value!== ''){
+            firstValue = parseFloat(inputValue.value)
+            inputValue.value = '';
+        }
     })
 })
 
 calculate.addEventListener("click", (e) => {
-    secondValue = parseFloat(inputValue.value, 10)
+    secondValue = parseFloat(inputValue.value)
     result = matchOperator[operator](firstValue, secondValue)
-    console.log(result)
+    inputValue.value = result;
 })
