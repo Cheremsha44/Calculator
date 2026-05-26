@@ -5,6 +5,7 @@ const operatorButtons = document.querySelectorAll('.operator')
 const calculate = document.querySelector('.ravno')
 const numberButtons = document.querySelectorAll('.number-btn')
 const resetButton = document.querySelector('.reset')
+const resetCButton = document.querySelector('.reset-c')
 //JS
 let firstValue = 0
 let secondValue = 0
@@ -34,7 +35,6 @@ numberButtons.forEach((button) =>{
             if(digit !== '.'){
                 inputValue.textContent = digit
             }else{
-
                 inputValue.textContent = inputValue.textContent + digit
             }
             shouldResetScreen = false
@@ -75,4 +75,11 @@ resetButton.addEventListener("click", (e) => {
     secondValue = 0
     firstValue = 0
     shouldResetScreen = false
+})
+
+resetCButton.addEventListener("click", (e) => {
+    inputValue.textContent = inputValue.textContent.slice(0, -1)
+    if(inputValue.textContent === ''){
+        inputValue.textContent = '0'
+    }
 })

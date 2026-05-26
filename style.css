@@ -7,6 +7,7 @@ body{
     margin: 0 auto;
     background-color: #1a1a1a;
     padding: 15px;
+    margin-top: 50px;
     border-radius: 15px;
 }
 .display{
@@ -20,9 +21,11 @@ body{
     margin: 25px 0;
     padding: 10px;
     border-radius: 15px;
+    box-shadow:  0 2px 6px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);
 }
 #lastValue{
-    font-size: 2rem;
+    font-size: 1.2rem;
+    color:rgb(181, 187, 192);
 }
 .keys{
     display: grid;
@@ -33,6 +36,7 @@ body{
     background-color: #202020;
     color: aliceblue;
     font-size: 1.15rem;
+    font-weight: 500;
     border-radius: 10px;
     aspect-ratio: 1 / 1;
     border: none;
@@ -40,6 +44,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);
 }
 .keys button:hover {
     background-color: #353535;
@@ -53,12 +58,14 @@ body{
 }
 .keys button.operator{
     background-color: #e4712f;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);
 }
 .keys button.operator:hover{
     background-color: #e67a3b;
 }
 .keys button.ravno{
     background-color: #e4712f;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);
 }
 .keys button.ravno:hover{
     background-color: #e67a3b;
@@ -68,6 +75,14 @@ body{
     color: #202020;
 }
 .keys button.reset:hover{
+    background-color: #a09c99;
+    color: #202020;
+}
+.keys button.reset-c{
+    background-color: #c7c2bf;
+    color: #202020;
+}
+.keys button.reset-c:hover{
     background-color: #a09c99;
     color: #202020;
 }
