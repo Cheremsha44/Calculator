@@ -20,19 +20,19 @@ const matchOperator = {
 numberButtons.forEach((button) =>{
     button.addEventListener("click", (e) => {
         const digit = button.textContent
-        if(digit === '.' && inputValue.value.includes('.')){
+        if(digit === '.' && inputValue.textContent.includes('.')){
             return
         }
-        if(shouldResetScreen || inputValue.value === "0"){
+        if(shouldResetScreen || inputValue.textContent === "0"){
             if(digit !== '.'){
-                inputValue.value = digit
+                inputValue.textContent = digit
             }else{
 
-                inputValue.value = inputValue.value + digit
+                inputValue.textContent = inputValue.textContent + digit
             }
             shouldResetScreen = false
         }else{
-            inputValue.value = inputValue.value + digit
+            inputValue.textContent = inputValue.textContent + digit
         }
     })
 })
@@ -40,9 +40,9 @@ numberButtons.forEach((button) =>{
 operatorButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
         operator = button.id
-        if(inputValue.value!== ''){
-            firstValue = parseFloat(inputValue.value)
-            inputValue.value = '';
+        if(inputValue.textContent!== ''){
+            firstValue = parseFloat(inputValue.textContent)
+            inputValue.textContent = '';
         }
     })
 })
@@ -51,16 +51,16 @@ calculate.addEventListener("click", (e) => {
     if(!operator){
         return
     }
-    secondValue = parseFloat(inputValue.value)
+    secondValue = parseFloat(inputValue.textContent)
     result = matchOperator[operator](firstValue, secondValue)
-    inputValue.value = result;
+    inputValue.textContent = result;
     operator = ''
     secondValue = 0
     shouldResetScreen = true
 })
 
 resetButton.addEventListener("click", (e) => {
-    inputValue.value = '0'
+    inputValue.textContent = '0'
     operator = ''
     secondValue = 0
     firstValue = 0

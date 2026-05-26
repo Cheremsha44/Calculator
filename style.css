@@ -1,0 +1,70 @@
+body{
+    background-color: #0f0f0f;
+    font-family: sans-serif;
+}
+.container{
+    width: 250px;
+    margin: 0 auto;
+    background-color: #1a1a1a;
+    padding: 15px;
+    border-radius: 15px;
+}
+.display{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
+    color:aliceblue;
+    background-color: #000000;
+    font-size: 3rem;
+    margin: 25px 0;
+    padding: 10px;
+    border-radius: 15px;
+}
+.keys{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+.keys button{
+    background-color: #202020;
+    color: aliceblue;
+    font-size: 1.15rem;
+    border-radius: 10px;
+    aspect-ratio: 1 / 1;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.keys button:hover {
+    background-color: #353535;
+}
+.keys button:active {
+    transform: scale(0.95);
+}
+.keys button.span-two {
+    grid-column: span 2;
+    aspect-ratio: auto;
+}
+.keys button.operator{
+    background-color: #e4712f;
+}
+.keys button.operator:hover{
+    background-color: #e67a3b;
+}
+.keys button.ravno{
+    background-color: #e4712f;
+}
+.keys button.ravno:hover{
+    background-color: #e67a3b;
+}
+.keys button.reset{
+    background-color: #c7c2bf;
+    color: #202020;
+}
+.keys button.reset:hover{
+    background-color: #a09c99;
+    color: #202020;
+}
