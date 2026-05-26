@@ -1,5 +1,6 @@
 //HTML
 const inputValue = document.querySelector('#inputValue')
+const lastValue = document.querySelector('#lastValue')
 const operatorButtons = document.querySelectorAll('.operator')
 const calculate = document.querySelector('.ravno')
 const numberButtons = document.querySelectorAll('.number-btn')
@@ -15,6 +16,12 @@ const matchOperator = {
     subtract: (a,b)=>a-b,
     multiply: (a,b)=>a*b,
     divide: (a,b)=>a/b
+}
+const operatorSymbols = {
+    add: '+',
+    subtract: '-',
+    multiply: '*',
+    divide: '/'
 }
 //---------------------------------------------------------------------------------------------------------
 numberButtons.forEach((button) =>{
@@ -40,8 +47,9 @@ numberButtons.forEach((button) =>{
 operatorButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
         operator = button.id
-        if(inputValue.textContent!== ''){
+        if(inputValue.textContent !== ''){
             firstValue = parseFloat(inputValue.textContent)
+            lastValue.textContent = firstValue
             inputValue.textContent = '';
         }
     })
@@ -54,6 +62,7 @@ calculate.addEventListener("click", (e) => {
     secondValue = parseFloat(inputValue.textContent)
     result = matchOperator[operator](firstValue, secondValue)
     inputValue.textContent = result;
+    lastValue.textContent = `${firstValue} ${operatorSymbols[operator]} ${secondValue} = `;
     operator = ''
     secondValue = 0
     shouldResetScreen = true
@@ -61,6 +70,7 @@ calculate.addEventListener("click", (e) => {
 
 resetButton.addEventListener("click", (e) => {
     inputValue.textContent = '0'
+    lastValue.textContent = ''
     operator = ''
     secondValue = 0
     firstValue = 0
