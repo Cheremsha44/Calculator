@@ -1,13 +1,3 @@
-// Make eventlistener to console.log(button.value)
-// Make eventlistener to console.log(input.value)
-
-
-// 1) Vvod in input
-// 2) Click button operator {firstValue} and {operator}
-// 3) Vvod in input {secondValue}
-// 4) Click button calculate {secondValue}
-// 5) Calculate {firstValue} and {operator} and {secondValue}
-//---------------------------------------------------------------------------------------------------------
 //HTML
 const inputValue = document.querySelector('#inputValue')
 const operatorButtons = document.querySelectorAll('.operator')
@@ -26,7 +16,7 @@ const matchOperator = {
     multiply: (a,b)=>a*b,
     divide: (a,b)=>a/b
 }
-// eventListener
+//---------------------------------------------------------------------------------------------------------
 numberButtons.forEach((button) =>{
     button.addEventListener("click", (e) => {
         const digit = button.textContent
@@ -70,7 +60,7 @@ calculate.addEventListener("click", (e) => {
 })
 
 resetButton.addEventListener("click", (e) => {
-    inputValue.value = 0
+    inputValue.value = '0'
     operator = ''
     secondValue = 0
     firstValue = 0
