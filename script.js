@@ -49,8 +49,8 @@ operatorButtons.forEach((button) => {
         operator = button.id
         if(inputValue.textContent !== ''){
             firstValue = parseFloat(inputValue.textContent)
-            lastValue.textContent = firstValue
-            inputValue.textContent = '';
+            lastValue.textContent = `${firstValue} ${operatorSymbols[operator]}`
+            inputValue.textContent = '0';
         }
     })
 })
@@ -61,7 +61,7 @@ calculate.addEventListener("click", (e) => {
     }
     secondValue = parseFloat(inputValue.textContent)
     result = matchOperator[operator](firstValue, secondValue)
-    inputValue.textContent = result;
+    inputValue.textContent = Number(result.toFixed(4));
     lastValue.textContent = `${firstValue} ${operatorSymbols[operator]} ${secondValue} = `;
     operator = ''
     secondValue = 0
@@ -70,7 +70,7 @@ calculate.addEventListener("click", (e) => {
 
 resetButton.addEventListener("click", (e) => {
     inputValue.textContent = '0'
-    lastValue.textContent = ''
+    lastValue.textContent = '0'
     operator = ''
     secondValue = 0
     firstValue = 0

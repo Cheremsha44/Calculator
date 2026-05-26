@@ -21,6 +21,9 @@ body{
     padding: 10px;
     border-radius: 15px;
 }
+#lastValue{
+    font-size: 2rem;
+}
 .keys{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
