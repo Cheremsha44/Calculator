@@ -39,4 +39,6 @@ calculate.addEventListener("click", (e) => {
     secondValue = parseFloat(inputValue.value)
     result = matchOperator[operator](firstValue, secondValue)
     inputValue.value = result;
+    operator = ''
+    secondValue = 0
 })
