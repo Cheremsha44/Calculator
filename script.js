@@ -46,17 +46,31 @@ numberButtons.forEach((button) =>{
 
 operatorButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
-        operator = button.id
-        if(inputValue.textContent !== ''){
-            firstValue = parseFloat(inputValue.textContent)
-            lastValue.textContent = `${firstValue} ${operatorSymbols[operator]}`
-            inputValue.textContent = '0';
+        if(operator !== ''){
+            secondValue = parseFloat(inputValue.textContent)
+            result = matchOperator[operator](firstValue, secondValue)
+            firstValue = result
+            operator = button.id
+            lastValue.textContent = `${result} ${operatorSymbols[operator]}` 
+        }else{
+            operator = button.id
+            if(inputValue.textContent !== ''){
+                firstValue = parseFloat(inputValue.textContent)
+                lastValue.textContent = `${firstValue} ${operatorSymbols[operator]}`
+            }
         }
+        inputValue.textContent = '0';
     })
 })
 
 calculate.addEventListener("click", (e) => {
     if(!operator){
+        return
+    }
+    if (operator === 'divide' && secondValue === 0){
+        lastValue.textContent = `${firstValue} ${operatorSymbols[operator]} ${secondValue} = `;
+        inputValue.textContent = "Nice try"
+        shouldResetScreen = true
         return
     }
     secondValue = parseFloat(inputValue.textContent)
